@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 
 export default function Home({ pokemon }) {
-  // console.log(pokemon);
+  console.log(pokemon);
 
   return (
     <Layout title="NextJs Pokemon">
@@ -16,7 +16,7 @@ export default function Home({ pokemon }) {
             <div key={index}>
               <div className="card rounded-br-[160px] bg-base-100 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105  duration-300 hover:bg-indigo-300">
                 <figure className="bg-gray-300 hover:bg-white  mt-3 mx-3">
-                  <img  src={poke.image} alt={poke.name} className="rounded-xl  " />
+                  <img src={poke.image} alt={poke.name} className="rounded-xl  " />
                 </figure>
                 <div className="card-body  text-center">
                   <h2 className="capitalize text-start font-bold text-xl md:text-3xl">{poke.name}</h2>
@@ -31,28 +31,7 @@ export default function Home({ pokemon }) {
           )
         }
       </div>
-      {/* <ul>
-        {
-          pokemon.map((poke, index) =>
-            <li>
-              <Link href={`/pokemon?id=${index + 1}`}>
-                <h1 className="border p-4 border-grey my-2 hover:shadow-md capitalize flex items-center text-lg bg-gray-200 rounded-md">
-                  <img
-                    src={poke.image}
-                    alt={poke.name}
-                    className="w-20 h-20 mr-3"
-                  />
-                  <span className="mr-2 font-bold">
-                    {index + 1}.
-                  </span>
-                  {poke.name}
-                </h1>
-              </Link>
-            </li>
-          )
-        }
 
-      </ul> */}
     </Layout>
   )
 }
