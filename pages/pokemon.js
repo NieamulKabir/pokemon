@@ -7,7 +7,7 @@ const pokemon = ({ poke }) => {
         <Layout className='capitalize' title={poke.name}>
 
 
-            <div className="card mx-auto w-[50%] bg-base-100 shadow-xl">
+            <div className="card mx-auto w-[80%] bg-base-100 shadow-xl">
 
                 <h1 className='text-4xl text-center capitalize font-bold my-2'>{poke.name}</h1>
                 <figure className='bg-gray-300 mx-2'><img src={poke.image} alt={poke.name} /></figure>
@@ -21,20 +21,21 @@ const pokemon = ({ poke }) => {
                             <h2 className='text-lg font-bold'>Ability:</h2>
                             {
                                 poke.abilities.map((ability, index) => (
-                                    <p className='rounded px-1 m-1 bg-red-200' key={index}>{ability.ability.name}</p>
+                                    <p className='rounded px-1 m-1 bg-red-200 text-center' key={index}>{ability.ability.name}</p>
                                 ))
                             }
 
                         </div>
+                        <div>
+                            <h2 className='text-lg font-bold'>Types : </h2>
+                            {
+                                poke.types.map((type, index) => (
+                                    <p className='rounded px-2 m-1 bg-red-200 text-center' key={index}>{type.type.name}</p>
+                                ))
+                            }
+                        </div>
                     </div>
-                    <div className='w-[50%] mx-auto'>
-                        <h2 className='text-lg font-bold mt-2 mb-2'>Types : </h2>
-                        {
-                            poke.types.map((type, index) => (
-                                <p className='rounded px-1 m-1 bg-red-200 text-center' key={index}>{type.type.name}</p>
-                            ))
-                        }
-                    </div>
+                    
 
                 </div>
                 <p className=' mb-3 pb-10 text-center'>
