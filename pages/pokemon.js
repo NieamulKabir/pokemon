@@ -4,7 +4,7 @@ import Link from 'next/link';
 const pokemon = ({ poke }) => {
     console.log(poke);
     return (
-        <Layout title={poke.name}>
+        <Layout className='capitalize' title={poke.name}>
             <h1 className='text-4xl text-center capitalize'>{poke.name}</h1>
             <img className='mx-auto' src={poke.image} alt={poke.name} />
             <p><span className='font-bold mr-2 '>Weight: </span>{poke.weight}</p>
