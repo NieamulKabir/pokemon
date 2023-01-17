@@ -4,12 +4,13 @@ import Link from 'next/link';
 
 
 export default function Home({ pokemon }) {
-  console.log(pokemon);
+  // console.log(pokemon);
 
   return (
     <Layout title="NextJs Pokemon">
+
       <h1 className='text-4xl mx-auto mb-8 text-center font-bold font-serif'>Pokemon</h1>
-      {pokemon.name}
+
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
         {
           pokemon.map((poke, index) =>
@@ -41,9 +42,10 @@ export async function getStaticProps(context) {
   try {
     const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=20');
     const { results } = await res.json();
+
     const pokemon = results.map((result, index) => {
-      const paddedIndex = ("00" + (index + 1)).slice(-3)
-      const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${paddedIndex}.png`
+      const imageIndex = ("00" + (index + 1)).slice(-3)
+      const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${imageIndex}.png`
       return {
         ...result,
         image
@@ -54,7 +56,9 @@ export async function getStaticProps(context) {
         pokemon
       }
     }
-  } catch (err) {
+  }
+
+  catch (err) {
     console.error(err);
   }
 

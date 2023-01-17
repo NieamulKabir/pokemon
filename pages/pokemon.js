@@ -48,10 +48,6 @@ const pokemon = ({ poke }) => {
 
 
 
-
-
-
-
         </Layout>
     );
 };
@@ -63,8 +59,8 @@ export async function getServerSideProps({ query }) {
     try {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
         const poke = await res.json();
-        const paddedIndex = ("00" + (id)).slice(-3)
-        const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${paddedIndex}.png`
+        const imageIndex = ("00" + (id)).slice(-3)
+        const image = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${imageIndex}.png`
         poke.image = image
 
         return {
